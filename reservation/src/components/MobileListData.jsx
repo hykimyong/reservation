@@ -6,7 +6,7 @@ import { useStore } from '../common/store';
 const Table = styled.table`
 border-collapse: separate;
 border-spacing: 10px;
-width:100%;
+width : 95%;
 background-color:white;
 margin : 8px;
 border-radius : 30px;
@@ -22,10 +22,11 @@ const ReserveBtn = styled.button`
     color: #3BB94C;
 `;
 
-export default function MobileListData({data, index}) {
+export default function MobileListData({index,data}) {
     const [status, setStatus] = useState(data.status);
 
     const setoData = useStore((state)=>state.setData);
+    const setMobileClick = useStore((state)=>state.setMobileClick);
 
     const reserveBtnClick = (event) =>{
         event.stopPropagation();
@@ -39,6 +40,7 @@ export default function MobileListData({data, index}) {
 
     const onTableClick = () =>{
         setoData(data);
+        setMobileClick(true);
     }
 
   return (
@@ -65,7 +67,6 @@ export default function MobileListData({data, index}) {
         </Tr>
         </tbody>
     </Table>
-    <br></br>
     </>
     : (<></>)
   )

@@ -3,13 +3,14 @@ import styled from 'styled-components';
 import { useStore } from '../common/store';
 
 const Td = styled.td`
-    width : 250px;
+    width : 100px;
 `;
 
 const Table = styled.table`
-    background-color: white;
+    background-color: #FFFFFF;
     border-radius : 10px;
     width:500px;
+    height:800px;
     border-collapse:collapse;
 `;
 

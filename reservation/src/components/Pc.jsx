@@ -3,6 +3,10 @@ import { useQuery } from 'react-query'
 import ListData from './ListData';
 import ListValue from './ListValue';
 
+const H1 = styled.h1`
+    text-align:center;
+`;
+
 const Aside = styled.aside`
     float:right;
     position:relative;
@@ -27,7 +31,7 @@ export default function Pc() {
     
   return ( 
     <div className='main'>
-      <h1>예약 목록</h1>
+      <H1>예약 목록</H1>
       <Aside>
         <ListValue/>
       </Aside>
