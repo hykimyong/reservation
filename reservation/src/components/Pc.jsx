@@ -1,29 +1,41 @@
-import React, { useEffect, useState } from 'react'
-import axios from "axios";
+import styled from 'styled-components';
+import { useQuery } from 'react-query'
+import ListData from './ListData';
+import ListValue from './ListValue';
 
-const TestApiCall = async () => {
-    try{
-        const response = await axios.get('https://frontend.tabling.co.kr/v1/store/9533/reservations');
-        console.log(response);
-        return response.data;
-    }catch(err){
-        console.log(err);
-    }
-    
-  }
+const Aside = styled.aside`
+    float:right;
+    position:relative;
+    top:0;
+    right:0;
+    width:40%;
+    margin-left:5px;
+    height:600px;
+    height:150px;
+`;
 
 export default function Pc() {
-    const [data, setData] = useState();
-    useEffect(()=>{
-        setData(TestApiCall());
-    },[])
+  const { isLoading, error, data } = useQuery('repoData', () =>
+  fetch('https://frontend.tabling.co.kr/v1/store/9533/reservations').then(res =>
+      res.json()
+    )
+  )
+
+  if (isLoading) return 'Loading...'
+
+  if (error) return 'An error has occurred: ' + error.message
     
-  return (
-    <>
-    <h1>예약 목록</h1>
-    <section>22</section>
-    <section>11</section>
-    <aside>dd</aside>
-    </>
+  return ( 
+    <div className='main'>
+      <h1>예약 목록</h1>
+      <Aside>
+        <ListValue/>
+      </Aside>
+              {data.reservations.map((item, index)=>{
+                return(<ListData data={item} key={data.id}></ListData>)
+              })}
+              
+      
+    </div>
   )
 }
