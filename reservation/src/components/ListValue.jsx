@@ -6,6 +6,10 @@ const Td = styled.td`
     width : 100px;
 `;
 
+const TdCenter = styled.td`
+    text-align : center;
+`;
+
 const Table = styled.table`
     background-color: #FFFFFF;
     border-radius : 10px;
@@ -30,15 +34,15 @@ export default function ListValue() {
         <tbody>
             <tr>
                 <Td>예약 상태</Td>
-                <td>{data.status === 'seated' ? "착석" : "예약중"}</td>
+                <TdCenter>{data.status === 'seated' ? "착석" : "예약중"}</TdCenter>
             </tr>
             <tr>
                 <Td>예약 시간</Td>
-                <td>{data.timeReserved ? data.timeReserved.substring(10,16) : "value"}</td>
+                <TdCenter>{data.timeReserved ? data.timeReserved.substring(10,16) : "value"}</TdCenter>
             </tr>
             <tr>
                 <Td>접수시간</Td>
-                <td>{data.timeRegistered ? data.timeRegistered.substring(10,16) : "value"}</td>
+                <TdCenter>{data.timeRegistered ? data.timeRegistered.substring(10,16) : "value"}</TdCenter>
             </tr>
             <tr>
             <th colSpan={2}>
@@ -48,19 +52,19 @@ export default function ListValue() {
             </tr>
             <tr>
                 <Td>고객성명</Td>
-                <td>{data.customer ? data.customer.name : "value"}</td>
+                <TdCenter>{data.customer ? data.customer.name : "value"}</TdCenter>
             </tr>
             <tr>
                 <Td>고객등급</Td>
-                <td>{data.customer ? data.customer.level : "value"}</td>
+                <TdCenter>{data.customer ? data.customer.level : "value"}</TdCenter>
             </tr>
             <tr>
                 <Td>고객메모</Td>
-                <td>{data.customer ? data.customer.memo : "value"}</td>
+                <TdCenter>{data.customer ? data.customer.memo : "value"}</TdCenter>
             </tr>
             <tr>
                 <Td>요청사항</Td>
-                <td>{data.customer ? data.customer.request : "value"}</td>
+                <TdCenter>{data.customer ? data.customer.request : "value"}</TdCenter>
             </tr>
         </tbody>
     </Table>

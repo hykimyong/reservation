@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { useQuery } from 'react-query'
-import ListData from './ListData';
-import ListValue from './ListValue';
+import { useQuery } from 'react-query';
+import ListData from '../components/ListData';
+import ListValue from '../components/ListValue';
 
 const H1 = styled.h1`
     text-align:center;
@@ -35,11 +35,9 @@ export default function Pc() {
       <Aside>
         <ListValue/>
       </Aside>
-              {data.reservations.map((item, index)=>{
-                return(<ListData data={item} key={data.id}></ListData>)
-              })}
-              
-      
+      {data.reservations.map((item)=>{
+        return(<ListData key={item.id} data={item}/>)
+      })}
     </div>
   )
 }

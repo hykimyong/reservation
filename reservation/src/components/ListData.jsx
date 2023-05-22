@@ -3,9 +3,25 @@ import styled from 'styled-components';
 import { useStore } from '../common/store';
 
 const SeatedBtn = styled.button`
+    color: white;
+    background-color: #162149;
+    width: 65px;
+    height: 35px;
+    border-radius: 5px;
+`;
+
+const ReservedBtn =styled.button`
+    color: #162149;
+    background-color: white;
+    width: 65px;
+    height: 35px;
+    border-radius: 5px;
+`;
+
+const SeatedText = styled.span`
     color: #162149;
 `;
-const ReserveBtn = styled.button`
+const ReserveText = styled.span`
     color: #3BB94C;
 `;
 
@@ -28,7 +44,7 @@ width:100%;
 `
 
 
-export default function ListData({data, index}) {
+export default function ListData({data}) {
     const [status, setStatus] = useState(data.status);
 
     const setoData = useStore((state)=>state.setData);
@@ -59,11 +75,11 @@ export default function ListData({data, index}) {
             <th rowSpan="3">시간상태</th>
             <td>{data.customer.name} -{data.tables[0].name}</td>
             <td rowSpan="3">
-                {status === 'reserved' ? (<ReserveBtn onClick={reserveBtnClick}>예약</ReserveBtn>) : (<SeatedBtn onClick={SeatedBtnClick}>퇴석</SeatedBtn>)}
+                {status === 'reserved' ? (<ReservedBtn onClick={reserveBtnClick}>착석</ReservedBtn>) : (<SeatedBtn onClick={SeatedBtnClick}>퇴석</SeatedBtn>)}
             </td>
         </Tr>
         <Tr>
-        <td>성인 {data.customer.adult}명 아이 {data.customer.child}</td>
+        <td>성인 {data.customer.adult}명 아이 {data.customer.child}  {status === 'reserved' ? <ReserveText>예약</ReserveText> : <SeatedText>착석 중</SeatedText>}</td>
         </Tr>
         <Tr>
             <td>
@@ -74,7 +90,6 @@ export default function ListData({data, index}) {
         </Tr>
         </tbody>
         </Table>
-        
     </Section>
     <br/>
     </>

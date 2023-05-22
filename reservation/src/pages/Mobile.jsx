@@ -1,8 +1,8 @@
 import React from 'react'
 import { useQuery } from 'react-query'
 import styled from 'styled-components';
-import MobileListData from './MobileListData';
-import MobileModal from './MobileModal';
+import MobileListData from '../components/MobileListData';
+import MobileModal from '../components/MobileModal';
 
 const H1 = styled.h1`
 text-align:center;

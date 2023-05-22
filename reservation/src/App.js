@@ -1,6 +1,6 @@
 import './App.css';
-import Mobile from './components/Mobile';
-import Pc from './components/Pc';
+import Mobile from './pages/Mobile';
+import Pc from './pages/Pc';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 const queryClient = new QueryClient()
