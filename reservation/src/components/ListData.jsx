@@ -29,11 +29,21 @@ const Tr = styled.tr`
     cursor : pointer;
 `;
 
+const Th = styled.th`
+    width:100px;
+`;
+
+const TdRight = styled.td`
+    text-aligh : right;
+    width: 70px;
+`;
+
 const Section = styled.section`
-    width:50%;
+    width:55%;
     background-color:white;
     height:150px;
-    text-align:center;
+    display:flex;
+    align-items:center;
     border-radius : 30px;
 `;
 
@@ -72,11 +82,11 @@ export default function ListData({data}) {
         <Table onClick={onTableClick}>
             <tbody>
         <Tr>
-            <th rowSpan="3">시간상태</th>
+            <Th rowSpan="3">시간<br/>상태</Th>
             <td>{data.customer.name} -{data.tables[0].name}</td>
-            <td rowSpan="3">
+            <TdRight rowSpan="3">
                 {status === 'reserved' ? (<ReservedBtn onClick={reserveBtnClick}>착석</ReservedBtn>) : (<SeatedBtn onClick={SeatedBtnClick}>퇴석</SeatedBtn>)}
-            </td>
+            </TdRight>
         </Tr>
         <Tr>
         <td>성인 {data.customer.adult}명 아이 {data.customer.child}  {status === 'reserved' ? <ReserveText>예약</ReserveText> : <SeatedText>착석 중</SeatedText>}</td>

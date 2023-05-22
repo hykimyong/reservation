@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 const Td = styled.td`
     width : 70px;
-    color : gray;
+    color: gray;
 `;
 
 const Td2 = styled.td`

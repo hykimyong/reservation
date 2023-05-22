@@ -4,6 +4,8 @@ import { useStore } from '../common/store';
 
 const Td = styled.td`
     width : 100px;
+    color: gray;
+    padding-left: 30px;
 `;
 
 const TdCenter = styled.td`
