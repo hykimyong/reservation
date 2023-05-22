@@ -8,10 +8,6 @@ const Td = styled.td`
     padding-left: 30px;
 `;
 
-const TdCenter = styled.td`
-    text-align : center;
-`;
-
 const Table = styled.table`
     background-color: #FFFFFF;
     border-radius : 10px;
@@ -29,44 +25,43 @@ export default function ListValue() {
         <thead>
             <tr>
                 <th colSpan={2}>
-                    예약 정보
+                    <h3>예약 정보</h3>
                 </th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <Td>예약 상태</Td>
-                <TdCenter>{data.status === 'seated' ? "착석" : "예약중"}</TdCenter>
+                <td>{data.status === 'seated' ? "착석" : "예약중"}</td>
             </tr>
             <tr>
                 <Td>예약 시간</Td>
-                <TdCenter>{data.timeReserved ? data.timeReserved.substring(10,16) : "value"}</TdCenter>
+                <td>{data.timeReserved ? data.timeReserved.substring(10,16) : "value"}</td>
             </tr>
             <tr>
                 <Td>접수시간</Td>
-                <TdCenter>{data.timeRegistered ? data.timeRegistered.substring(10,16) : "value"}</TdCenter>
+                <td>{data.timeRegistered ? data.timeRegistered.substring(10,16) : "value"}</td>
             </tr>
             <tr>
             <th colSpan={2}>
-            고객 정보
-                </th>
-                
+                <h3>고객 정보</h3>
+            </th>
             </tr>
             <tr>
                 <Td>고객성명</Td>
-                <TdCenter>{data.customer ? data.customer.name : "value"}</TdCenter>
+                <td>{data.customer ? data.customer.name : "value"}</td>
             </tr>
             <tr>
                 <Td>고객등급</Td>
-                <TdCenter>{data.customer ? data.customer.level : "value"}</TdCenter>
+                <td>{data.customer ? data.customer.level : "value"}</td>
             </tr>
             <tr>
                 <Td>고객메모</Td>
-                <TdCenter>{data.customer ? data.customer.memo : "value"}</TdCenter>
+                <td>{data.customer ? data.customer.memo : "value"}</td>
             </tr>
             <tr>
                 <Td>요청사항</Td>
-                <TdCenter>{data.customer ? data.customer.request : "value"}</TdCenter>
+                <td>{data.customer ? data.customer.request : "value"}</td>
             </tr>
         </tbody>
     </Table>
